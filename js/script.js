@@ -79,14 +79,123 @@ window.addEventListener('scroll', () => {
 if ('loading' in HTMLImageElement.prototype) {
     const images = document.querySelectorAll('img[loading="lazy"]');
     images.forEach(img => {
-        img.src = img.dataset.src;
+        img.addEventListener('load', function() {
+            this.classList.add('loaded');
+        });
     });
 } else {
     // Fallback for browsers that don't support lazy loading
     const script = document.createElement('script');
     script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
     document.head.appendChild(script);
+    
+    script.onload = function() {
+        // Implement intersection observer for lazy loading
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            img.dataset.src = img.src;
+            img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB2aWV3Qm94PSIwIDAgMSAxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGNUY1RjUiLz48L3N2Zz4=';
+            imageObserver.observe(img);
+        });
+    };
 }
+
+// WebP support detection
+function supportsWebP(callback) {
+    const webP = new Image();
+    webP.onload = webP.onerror = function () {
+        callback(webP.height === 2);
+    };
+    webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+}
+
+// Add WebP class to html element
+supportsWebP(function(supported) {
+    if (supported) {
+        document.documentElement.classList.add('webp');
+    } else {
+        document.documentElement.classList.add('no-webp');
+    }
+});
+
+// Progressive image loading with blur effect
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    images.forEach(img => {
+        // Create a tiny version for blur effect
+        const placeholder = new Image();
+        placeholder.src = img.src.replace(/\.(jpg|jpeg|png|webp)$/, '_placeholder.$1');
+        placeholder.onload = function() {
+            img.style.backgroundImage = `url(${placeholder.src})`;
+            img.style.backgroundSize = 'cover';
+            img.style.backgroundPosition = 'center';
+        };
+        
+        img.addEventListener('load', function() {
+            this.style.backgroundImage = '';
+            this.classList.add('loaded');
+        });
+    });
+});
+
+// Modern image interactions
+document.addEventListener('DOMContentLoaded', function() {
+    // Add touch support for mobile hover effects
+    const cards = document.querySelectorAll('.attraction-card, .hero-image-container');
+    
+    cards.forEach(card => {
+        let touchTimer;
+        
+        card.addEventListener('touchstart', function() {
+            touchTimer = setTimeout(() => {
+                this.classList.add('touch-active');
+            }, 200);
+        });
+        
+        card.addEventListener('touchend', function() {
+            clearTimeout(touchTimer);
+            setTimeout(() => {
+                this.classList.remove('touch-active');
+            }, 2000);
+        });
+    });
+    
+    // Image error handling with better fallbacks
+    const allImages = document.querySelectorAll('img');
+    allImages.forEach(img => {
+        img.addEventListener('error', function() {
+            // Try WebP fallback first
+            if (this.src.includes('.webp')) {
+                this.src = this.src.replace('.webp', '.jpg');
+            } else {
+                // Use a better placeholder with site branding
+                this.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+                        <rect width="400" height="250" fill="#00B8D9" opacity="0.1"/>
+                        <text x="200" y="120" text-anchor="middle" font-family="Arial" font-size="16" fill="#00B8D9">
+                            📸 Image Loading...
+                        </text>
+                        <text x="200" y="140" text-anchor="middle" font-family="Arial" font-size="12" fill="#666">
+                            Jaffna Family Explorer
+                        </text>
+                    </svg>
+                `);
+                this.alt = 'Image not available - Jaffna Family Explorer';
+            }
+        });
+    });
+});
 
 // Form validation and interaction (for future contact forms)
 function validateEmail(email) {

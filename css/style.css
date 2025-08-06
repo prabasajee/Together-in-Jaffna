@@ -177,6 +177,110 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+/* Modern image containers with overlays */
+.hero-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.hero-image-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero-image-container:hover .hero-image-overlay {
+    opacity: 1;
+}
+
+.image-badge {
+    background: rgba(0, 184, 217, 0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+}
+
+.card-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    display: flex;
+    align-items: flex-end;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.quick-info {
+    display: flex;
+    gap: 15px;
+}
+
+.quick-info span {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+}
+
+.quick-info i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+/* Lazy loading blur effect */
+img[loading="lazy"] {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+img[loading="lazy"].loaded {
+    filter: blur(0);
+}
+
+/* WebP support detection */
+.no-webp .hero-image-container img {
+    background-image: url('images/hero-family.jpg');
+}
+
+.webp .hero-image-container img {
+    background-image: url('images/hero-family.webp');
+}
+
 /* Quick Links Section */
 .quick-links {
     padding: 80px 20px;
@@ -530,6 +634,22 @@ body {
     .time {
         margin-right: 0;
         margin-bottom: 1rem;
+    }
+
+    /* Touch device optimizations */
+    .touch-active .image-overlay,
+    .touch-active .hero-image-overlay {
+        opacity: 1;
+    }
+    
+    .card-image-container,
+    .hero-image-container {
+        position: relative;
+    }
+    
+    .quick-info {
+        flex-wrap: wrap;
+        gap: 8px;
     }
 }
 
