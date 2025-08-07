@@ -4,7 +4,7 @@ This folder should contain the following images for the website:
 
 ## Hero & General Images
 - `hero-family.jpg` - Happy family at Jaffna landmarks (header image)
-- `placeholder.jpg` - Default placeholder image for broken image links
+- `placeholder.jpg` - Default placeholder
 
 ## Attraction Images
 - `nallur-temple.jpg` - Nallur Kandaswamy Temple
