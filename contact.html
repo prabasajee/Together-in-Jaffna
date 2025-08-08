@@ -345,29 +345,29 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="temples" id="temples">
+                      <input class="form-check-input" type="checkbox" value="temples" id="temples" name="interests[]">
                       <label class="form-check-label" for="temples">🏛️ Historical Temples</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="beaches" id="beaches">
+                      <input class="form-check-input" type="checkbox" value="beaches" id="beaches" name="interests[]">
                       <label class="form-check-label" for="beaches">🏖️ Beaches & Islands</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="culture" id="culture">
+                      <input class="form-check-input" type="checkbox" value="culture" id="culture" name="interests[]">
                       <label class="form-check-label" for="culture">🎭 Cultural Experiences</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="food" id="food">
+                      <input class="form-check-input" type="checkbox" value="food" id="food" name="interests[]">
                       <label class="form-check-label" for="food">🍛 Local Cuisine</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="shopping" id="shopping">
+                      <input class="form-check-input" type="checkbox" value="shopping" id="shopping" name="interests[]">
                       <label class="form-check-label" for="shopping">🛍️ Shopping</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="nature" id="nature">
+                      <input class="form-check-input" type="checkbox" value="nature" id="nature" name="interests[]">
                       <label class="form-check-label" for="nature">🌿 Nature & Wildlife</label>
                     </div>
                   </div>
@@ -381,7 +381,7 @@
               
               <div class="form-group">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="newsletter" id="newsletter">
+                  <input class="form-check-input" type="checkbox" value="yes" id="newsletter" name="newsletter">
                   <label class="form-check-label" for="newsletter">
                     📬 Subscribe to our family travel tips newsletter
                   </label>
@@ -626,6 +626,18 @@
           e.preventDefault();
           return false;
         }
+      }
+      
+      // Collect selected interests for confirmation
+      const selectedInterests = [];
+      const interestCheckboxes = document.querySelectorAll('input[name="interests[]"]:checked');
+      interestCheckboxes.forEach(function(checkbox) {
+        selectedInterests.push(checkbox.value);
+      });
+      
+      // Optional: Show selected interests in confirmation (for development/testing)
+      if (selectedInterests.length > 0) {
+        console.log('Selected interests:', selectedInterests.join(', '));
       }
       
       // Show success message (you can replace this with actual form submission)
