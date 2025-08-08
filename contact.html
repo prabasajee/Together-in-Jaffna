@@ -635,11 +635,9 @@
         selectedInterests.push(checkbox.value);
       });
       
-      // Provide user feedback about their selections
-      let confirmationMessage = 'Thank you! We\'ll respond within 2 hours with your personalized family travel plan.';
-      
+      // Optional: Show selected interests in confirmation (for development/testing)
       if (selectedInterests.length > 0) {
-        confirmationMessage = `Thank you! We'll create a customized plan focusing on ${selectedInterests.join(', ')} and respond within 2 hours.`;
+        console.log('Selected interests:', selectedInterests.join(', '));
       }
       
       // Show success message (you can replace this with actual form submission)
