@@ -27,6 +27,123 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Custom Contact Page Styles -->
+    <style>
+      /* Utility Classes */
+      .full-width { width: 100%; }
+      .border-radius-10 { border-radius: 10px; }
+      .border-radius-15 { border-radius: 15px; }
+      
+      /* Service Highlight Cards */
+      .service-highlight-card {
+        background: #f8f9fa;
+        border-radius: 10px;
+        text-align: center;
+        padding: 1rem;
+      }
+      
+      .service-icon {
+        font-size: 2em;
+      }
+      
+      .service-icon.quick-response { color: #007bff; }
+      .service-icon.family-experts { color: #28a745; }
+      .service-icon.support-24-7 { color: #ffc107; }
+      
+      /* Quick Connect Section */
+      .quick-connect-section {
+        background: linear-gradient(45deg, #25D366, #128C7E);
+        border-radius: 15px;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+      
+      .quick-connect-btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+      
+      /* Map Container */
+      .map-display {
+        height: 400px;
+        border-radius: 10px;
+      }
+      
+      .map-info-panel {
+        background: #f8f9fa;
+        border-radius: 10px;
+        margin-top: 1rem;
+        padding: 1rem;
+      }
+      
+      /* Form Enhancements */
+      .form-tip-alert {
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+        color: #0c5460;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+      }
+      
+      .submit-btn-primary {
+        width: 100%;
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+        padding: 0.75rem 1.25rem;
+        font-size: 1.125rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+      }
+      
+      .submit-btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+      }
+      
+      /* FAQ Cards */
+      .faq-card {
+        margin-bottom: 1rem;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: 0.25rem;
+      }
+      
+      .faq-card-body {
+        padding: 1rem;
+      }
+      
+      /* Contact Information Cards */
+      .contact-info-text {
+        margin-bottom: 0.5rem;
+      }
+      
+      .contact-info-small {
+        font-size: 0.875em;
+        color: #6c757d;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .service-highlight-card {
+          margin-bottom: 1rem;
+        }
+        
+        .quick-connect-btn {
+          margin-bottom: 1rem;
+        }
+        
+        .map-display {
+          height: 250px;
+        }
+      }
+    </style>
   </head>
   <body>
     
@@ -70,68 +187,275 @@
           <div class="col-md-12 mb-4">
             <h2 class="h4">Family Travel Planning Center</h2>
             <p>Ready to create unforgettable family memories in Jaffna? Our expert team is here to help you plan the perfect family adventure. Contact us for personalized itineraries, family-safe accommodations, and 24/7 travel support.</p>
+            
+            <div class="row mt-4 mb-4">
+              <div class="col-md-4">
+                <div class="service-highlight-card">
+                  <span class="service-icon quick-response icon-clock-o"></span>
+                  <h5 class="mt-2">Quick Response</h5>
+                  <p class="mb-0">We respond within 2 hours during business hours</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="service-highlight-card">
+                  <span class="service-icon family-experts icon-users"></span>
+                  <h5 class="mt-2">Family Experts</h5>
+                  <p class="mb-0">Specialized in family travel with children</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="service-highlight-card">
+                  <span class="service-icon support-24-7 icon-shield"></span>
+                  <h5 class="mt-2">24/7 Support</h5>
+                  <p class="mb-0">Emergency assistance during your trip</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="w-100"></div>
           <div class="col-md-3">
-            <p><span>Address:</span> Jaffna Tourism Office, Hospital Road, Jaffna 40000, Sri Lanka</p>
+            <p><span>📍 Address:</span><br>Jaffna Tourism Office, Hospital Road, Jaffna 40000, Sri Lanka</p>
           </div>
           <div class="col-md-3">
-            <p><span>Phone:</span> <a href="tel://94212223456">+94 21 222 3456</a></p>
+            <p class="contact-info-text"><span>📞 Phone:</span><br><a href="tel://94212223456">+94 21 222 3456</a><br>
+            <small class="contact-info-small">Mon-Sat: 8AM-6PM</small></p>
           </div>
           <div class="col-md-3">
-            <p><span>Email:</span> <a href="mailto:hello@jaffnafamilyexplorer.com">hello@jaffnafamilyexplorer.com</a></p>
+            <p class="contact-info-text"><span>✉️ Email:</span><br><a href="mailto:hello@jaffnafamilyexplorer.com">hello@jaffnafamilyexplorer.com</a><br>
+            <small class="contact-info-small">Response within 2 hours</small></p>
           </div>
           <div class="col-md-3">
-            <p><span>Emergency:</span> <a href="tel://94777123456">+94 77 712 3456</a></p>
+            <p class="contact-info-text"><span>🚨 Emergency:</span><br><a href="tel://94777123456">+94 77 712 3456</a><br>
+            <small class="contact-info-small">24/7 Family Support</small></p>
+          </div>
+        </div>
+        
+        <!-- WhatsApp & Social Contact Section -->
+        <div class="row mb-5">
+          <div class="col-md-12">
+            <div class="quick-connect-section">
+              <h4 class="text-white mb-3">💬 Quick Connect</h4>
+              <div class="row">
+                <div class="col-md-4">
+                  <a href="https://wa.me/94777123456" class="btn btn-light btn-lg quick-connect-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Chat
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <a href="https://m.me/jaffnafamilyexplorer" class="btn btn-light btn-lg quick-connect-btn">
+                    <i class="fab fa-facebook-messenger"></i> Messenger
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <a href="viber://contact?number=94777123456" class="btn btn-light btn-lg quick-connect-btn">
+                    <i class="fab fa-viber"></i> Viber Call
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row block-9">
           <div class="col-md-6 pr-md-5">
-            <h3 class="mb-4">Tell Us About Your Family Trip</h3>
-            <form action="#" method="post">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name" required>
+            <h3 class="mb-4">📝 Tell Us About Your Family Trip</h3>
+            <div class="form-tip-alert">
+              <small><strong>💡 Tip:</strong> The more details you provide, the better we can customize your family experience!</small>
+            </div>
+            <form action="#" method="post" id="familyTripForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name">👤 Your Name *</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email">📧 Email Address *</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Your Email" required>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="phone">📱 Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone Number">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="familySize">👨‍👩‍👧‍👦 Family Size *</label>
+                    <select id="familySize" name="familySize" class="form-control" required>
+                      <option value="">Select Family Size</option>
+                      <option value="2-3">2-3 Family Members</option>
+                      <option value="4-5">4-5 Family Members</option>
+                      <option value="6+">6+ Family Members</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <input type="tel" class="form-control" placeholder="Phone Number">
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="childrenAges">🧒 Children's Ages</label>
+                    <input type="text" id="childrenAges" name="childrenAges" class="form-control" placeholder="e.g., 5, 8, 12">
+                    <small class="form-text text-muted">Helps us recommend age-appropriate activities</small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="travelDate">📅 Preferred Travel Date</label>
+                    <input type="date" id="travelDate" name="travelDate" class="form-control">
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <select class="form-control" required>
-                  <option value="">Family Size</option>
-                  <option value="2-3">2-3 Family Members</option>
-                  <option value="4-5">4-5 Family Members</option>
-                  <option value="6+">6+ Family Members</option>
-                </select>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="duration">⏰ Trip Duration</label>
+                    <select id="duration" name="duration" class="form-control">
+                      <option value="">Select Duration</option>
+                      <option value="1-2">1-2 Days (Weekend Trip)</option>
+                      <option value="3-4">3-4 Days (Short Break)</option>
+                      <option value="5-7">5-7 Days (Week-long)</option>
+                      <option value="1week+">1 Week or More</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="budget">💰 Budget Range (LKR)</label>
+                    <select id="budget" name="budget" class="form-control">
+                      <option value="">Select Budget Range</option>
+                      <option value="under-50k">Under 50,000 LKR</option>
+                      <option value="50k-100k">50,000 - 100,000 LKR</option>
+                      <option value="100k-200k">100,000 - 200,000 LKR</option>
+                      <option value="200k+">200,000+ LKR</option>
+                    </select>
+                  </div>
+                </div>
               </div>
+              
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Children's Ages (e.g., 5, 8, 12)">
+                <label for="interests">🎯 Family Interests (Check all that apply)</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="temples" id="temples">
+                      <label class="form-check-label" for="temples">🏛️ Historical Temples</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="beaches" id="beaches">
+                      <label class="form-check-label" for="beaches">🏖️ Beaches & Islands</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="culture" id="culture">
+                      <label class="form-check-label" for="culture">🎭 Cultural Experiences</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="food" id="food">
+                      <label class="form-check-label" for="food">🍛 Local Cuisine</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="shopping" id="shopping">
+                      <label class="form-check-label" for="shopping">🛍️ Shopping</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="nature" id="nature">
+                      <label class="form-check-label" for="nature">🌿 Nature & Wildlife</label>
+                    </div>
+                  </div>
+                </div>
               </div>
+              
               <div class="form-group">
-                <input type="date" class="form-control" placeholder="Preferred Travel Date">
+                <label for="message">💬 Additional Information</label>
+                <textarea name="message" id="message" cols="30" rows="6" class="form-control" placeholder="Tell us about any special requirements, dietary restrictions, accessibility needs, or specific questions about visiting Jaffna..."></textarea>
               </div>
+              
               <div class="form-group">
-                <select class="form-control">
-                  <option value="">Trip Duration</option>
-                  <option value="1-2">1-2 Days</option>
-                  <option value="3-4">3-4 Days</option>
-                  <option value="5-7">5-7 Days</option>
-                  <option value="1week+">1 Week or More</option>
-                </select>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="newsletter" id="newsletter">
+                  <label class="form-check-label" for="newsletter">
+                    📬 Subscribe to our family travel tips newsletter
+                  </label>
+                </div>
               </div>
+              
               <div class="form-group">
-                <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Tell us about your family's interests, any special requirements, or questions you have about visiting Jaffna..."></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Get Family Travel Plan" class="btn btn-primary py-3 px-5">
+                <button type="submit" class="submit-btn-primary">
+                  🎯 Get My Custom Family Travel Plan
+                </button>
+                <small class="form-text text-muted mt-2">We'll respond within 2 hours with a personalized itinerary!</small>
               </div>
             </form>
           
           </div>
 
-          <div class="col-md-6" id="map"></div>
+          <div class="col-md-6" id="map-container">
+            <div class="mb-3">
+              <h4>📍 Find Us in Jaffna</h4>
+              <p>Visit our family-friendly office in the heart of Jaffna. We're located near major family attractions!</p>
+            </div>
+            <div id="map" class="map-display"></div>
+            <div class="map-info-panel">
+              <h6>🚗 Getting Here:</h6>
+              <ul class="list-unstyled mb-0">
+                <li>• 5 minutes from Jaffna Railway Station</li>
+                <li>• 10 minutes from Jaffna Bus Stand</li>
+                <li>• Free parking available</li>
+                <li>• Child-friendly office space</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick FAQ Section -->
+    <section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-8 text-center">
+            <h2 class="mb-4">❓ Quick Questions?</h2>
+            <p>Find instant answers to common family travel questions</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="faq-card">
+              <div class="faq-card-body">
+                <h6 class="card-title">⏰ How quickly will you respond?</h6>
+                <p class="card-text">We respond to all inquiries within 2 hours during business hours (8AM-6PM, Mon-Sat). Emergency support is available 24/7.</p>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-card-body">
+                <h6 class="card-title">💰 Is consultation free?</h6>
+                <p class="card-text">Yes! Our travel planning consultation is completely free. We only charge for actual bookings and services.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="faq-card">
+              <div class="faq-card-body">
+                <h6 class="card-title">🏨 Can you book everything for us?</h6>
+                <p class="card-text">Absolutely! We can handle complete trip planning including hotels, tours, transportation, and restaurant reservations.</p>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-card-body">
+                <h6 class="card-title">🚨 What about emergency support?</h6>
+                <p class="card-text">We provide 24/7 emergency contact support for all our families during their stay in Jaffna. Your safety is our priority!</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -223,6 +547,117 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  
+  <!-- Dynamic Date Management Script -->
+  <script>
+    // Set minimum date to today for travel date picker
+    document.addEventListener('DOMContentLoaded', function() {
+      const travelDateInput = document.getElementById('travelDate');
+      const today = new Date();
+      
+      // Format date as YYYY-MM-DD for input[type="date"]
+      const todayFormatted = today.toISOString().split('T')[0];
+      
+      // Set minimum date to today
+      travelDateInput.setAttribute('min', todayFormatted);
+      
+      // Set maximum date to 2 years from today (reasonable booking window)
+      const maxDate = new Date();
+      maxDate.setFullYear(today.getFullYear() + 2);
+      const maxDateFormatted = maxDate.toISOString().split('T')[0];
+      travelDateInput.setAttribute('max', maxDateFormatted);
+      
+      // Add helpful placeholder text
+      travelDateInput.setAttribute('title', 'Select a date from today onwards');
+      
+      // Optional: Set default date to 30 days from today for better UX
+      const defaultDate = new Date();
+      defaultDate.setDate(today.getDate() + 30);
+      const defaultDateFormatted = defaultDate.toISOString().split('T')[0];
+      
+      // You can uncomment the line below to set a default date
+      // travelDateInput.value = defaultDateFormatted;
+      
+      // Add date validation feedback
+      travelDateInput.addEventListener('change', function() {
+        const selectedDate = new Date(this.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Reset time for accurate comparison
+        
+        if (selectedDate < today) {
+          this.setCustomValidity('Please select a date from today onwards');
+          this.reportValidity();
+        } else {
+          this.setCustomValidity('');
+        }
+      });
+    });
+
+    // Enhanced form validation
+    document.getElementById('familyTripForm').addEventListener('submit', function(e) {
+      const travelDate = document.getElementById('travelDate').value;
+      const familySize = document.getElementById('familySize').value;
+      
+      // Basic validation
+      if (!familySize) {
+        alert('Please select your family size to help us plan better!');
+        e.preventDefault();
+        return false;
+      }
+      
+      // Date validation
+      if (travelDate) {
+        const selectedDate = new Date(travelDate);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        if (selectedDate < today) {
+          alert('Please select a travel date from today onwards.');
+          e.preventDefault();
+          return false;
+        }
+        
+        // Check if date is too far in the future (more than 2 years)
+        const twoYearsFromNow = new Date();
+        twoYearsFromNow.setFullYear(today.getFullYear() + 2);
+        
+        if (selectedDate > twoYearsFromNow) {
+          alert('Please select a date within the next 2 years for better planning assistance.');
+          e.preventDefault();
+          return false;
+        }
+      }
+      
+      // Show success message (you can replace this with actual form submission)
+      alert('Thank you! We\'ll respond within 2 hours with your personalized family travel plan.');
+    });
+
+    // Auto-update budget suggestions based on family size
+    document.getElementById('familySize').addEventListener('change', function() {
+      const budgetSelect = document.getElementById('budget');
+      const familySize = this.value;
+      
+      // Update budget options based on family size
+      if (familySize === '6+') {
+        // Suggest higher budget ranges for larger families
+        budgetSelect.innerHTML = `
+          <option value="">Select Budget Range</option>
+          <option value="100k-200k">100,000 - 200,000 LKR</option>
+          <option value="200k-300k">200,000 - 300,000 LKR</option>
+          <option value="300k+">300,000+ LKR</option>
+        `;
+      } else {
+        // Default budget ranges
+        budgetSelect.innerHTML = `
+          <option value="">Select Budget Range</option>
+          <option value="under-50k">Under 50,000 LKR</option>
+          <option value="50k-100k">50,000 - 100,000 LKR</option>
+          <option value="100k-200k">100,000 - 200,000 LKR</option>
+          <option value="200k+">200,000+ LKR</option>
+        `;
+      }
+    });
+  </script>
     
   </body>
 </html>
