@@ -628,16 +628,20 @@
         }
       }
       
-      // Collect selected interests for confirmation
+      // Collect selected interests for form submission
       const selectedInterests = [];
       const interestCheckboxes = document.querySelectorAll('input[name="interests[]"]:checked');
       interestCheckboxes.forEach(function(checkbox) {
         selectedInterests.push(checkbox.value);
       });
       
+      // Optional: Show selected interests in confirmation (for development/testing)
+      if (selectedInterests.length > 0) {
+        console.log('Selected interests:', selectedInterests.join(', '));
+      }
       
       // Show success message (you can replace this with actual form submission)
-      alert('Thank you! We\'ll respond within 2 hours with your personalized family travel plan.');
+      alert("Thank you for contacting us! We'll get back to you soon.");
     });
 
     // Auto-update budget suggestions based on family size
