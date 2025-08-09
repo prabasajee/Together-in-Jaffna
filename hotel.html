@@ -749,13 +749,22 @@
               <h6>${hotel.name}</h6>
               <p><strong>${hotel.price}</strong></p>
               <p><small>${hotel.amenities}</small></p>
-              <button class="btn btn-sm btn-primary" onclick="scrollToHotel('${hotel.name}')">View Details</button>
+              <button class="btn btn-sm btn-primary" data-hotel-name="${hotel.name}">View Details</button>
             </div>
           `
         });
 
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
+          // Attach event listener to the button after InfoWindow opens
+          google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
+            const btn = document.querySelector('.gm-style-iw .btn[data-hotel-name="' + hotel.name.replace(/"/g, '&quot;') + '"]');
+            if (btn) {
+              btn.addEventListener('click', function() {
+                scrollToHotel(hotel.name);
+              });
+            }
+          });
         });
       });
 
