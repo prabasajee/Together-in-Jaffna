@@ -913,13 +913,22 @@
               <h6>${hotel.name}</h6>
               <p><strong>${hotel.price}</strong></p>
               <p><small>${hotel.amenities}</small></p>
-              <button class="btn btn-sm btn-primary" onclick="scrollToHotel('${hotel.name}')">View Details</button>
+              <button class="btn btn-sm btn-primary" data-hotel-name="${hotel.name}">View Details</button>
             </div>
           `
         });
 
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
+          // Attach event listener to the button after InfoWindow opens
+          google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
+            const btn = document.querySelector('.gm-style-iw .btn[data-hotel-name="' + hotel.name.replace(/"/g, '&quot;') + '"]');
+            if (btn) {
+              btn.addEventListener('click', function() {
+                scrollToHotel(hotel.name);
+              });
+            }
+          });
         });
       });
 
@@ -959,11 +968,20 @@
       });
     }
 
+    // Helper function to remove emoji prefixes from hotel names
+    function removeEmojiPrefix(str) {
+      // List of emoji prefixes used for hotels
+      const emojiPrefixes = ['🏨', '🌊', '🏛️', '🏰', '🌺'];
+      // Create a regex to match any of the emojis at the start, followed by a space
+      const regex = new RegExp('^(' + emojiPrefixes.map(e => e.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1')).join('|') + ')\\s*');
+      return str.replace(regex, '');
+    }
+
     // Function to scroll to hotel when clicked from map
     function scrollToHotel(hotelName) {
       const hotelElements = document.querySelectorAll('h3 a');
       hotelElements.forEach(element => {
-        if (element.textContent.includes(hotelName.replace('🏨 ', '').replace('🌊 ', '').replace('🏛️ ', '').replace('🏰 ', '').replace('🌺 ', ''))) {
+        if (element.textContent.includes(removeEmojiPrefix(hotelName))) {
           element.closest('.destination').scrollIntoView({ behavior: 'smooth', block: 'center' });
           element.closest('.destination').style.border = '3px solid #007bff';
           setTimeout(() => {
