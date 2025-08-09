@@ -795,11 +795,20 @@
       });
     }
 
+    // Helper function to remove emoji prefixes from hotel names
+    function removeEmojiPrefix(str) {
+      // List of emoji prefixes used for hotels
+      const emojiPrefixes = ['🏨', '🌊', '🏛️', '🏰', '🌺'];
+      // Create a regex to match any of the emojis at the start, followed by a space
+      const regex = new RegExp('^(' + emojiPrefixes.map(e => e.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1')).join('|') + ')\\s*');
+      return str.replace(regex, '');
+    }
+
     // Function to scroll to hotel when clicked from map
     function scrollToHotel(hotelName) {
       const hotelElements = document.querySelectorAll('h3 a');
       hotelElements.forEach(element => {
-        if (element.textContent.includes(hotelName.replace('🏨 ', '').replace('🌊 ', '').replace('🏛️ ', '').replace('🏰 ', '').replace('🌺 ', ''))) {
+        if (element.textContent.includes(removeEmojiPrefix(hotelName))) {
           element.closest('.destination').scrollIntoView({ behavior: 'smooth', block: 'center' });
           element.closest('.destination').style.border = '3px solid #007bff';
           setTimeout(() => {
