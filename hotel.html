@@ -295,11 +295,33 @@
           	<div class="row">
           		<div class="col-md-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="hotel-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-		    					</a>
+		    					<div class="hotel-gallery-container">
+		    						<div class="img img-2 d-flex justify-content-center align-items-center hotel-main-image" 
+		    							 style="background-image: url(https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop);"
+		    							 data-hotel="heritage-hotel">
+		    							<div class="gallery-overlay">
+		    								<div class="gallery-buttons">
+		    									<button class="btn btn-light btn-sm me-2" onclick="openGallery('heritage-hotel')">
+		    										<i class="fa fa-camera"></i> Gallery (5)
+		    									</button>
+		    									<button class="btn btn-primary btn-sm" onclick="start360Tour('heritage-hotel')">
+		    										<i class="fa fa-eye"></i> 360° Tour
+		    									</button>
+		    								</div>
+			    						</div>
+			    						<div class="icon d-flex justify-content-center align-items-center">
+	    							<span class="icon-search2"></span>
+	    						</div>
+		    					</div>
+		    					<!-- Hidden gallery images -->
+		    					<div class="hidden-gallery" data-hotel="heritage-hotel" style="display: none;">
+		    						<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop" alt="Heritage Hotel Exterior">
+		    						<img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop" alt="Family Room">
+		    						<img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop" alt="Kids Pool Area">
+		    						<img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop" alt="Restaurant & Kids Menu">
+		    						<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop" alt="Playground">
+		    					</div>
+		    				</div>
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
@@ -321,21 +343,52 @@
 		    						<div class="amenities mb-2">
 		    							<small>🏊‍♀️ Kids Pool | 🎮 Play Area | 👶 Cribs Available | 🍽️ Kids Menu</small>
 		    						</div>
+		    						<div class="hotel-actions mb-2">
+		    							<button class="btn btn-outline-info btn-sm me-2" onclick="showVirtualTour('heritage-hotel')">
+		    								📱 Virtual Tour
+		    							</button>
+		    							<button class="btn btn-outline-success btn-sm" onclick="showReviews('heritage-hotel')">
+		    								⭐ Family Reviews
+		    							</button>
+		    						</div>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
 		    							<span><i class="icon-map-o"></i> Jaffna City Center</span> 
-		    							<span class="ml-auto"><a href="#">Book Now</a></span>
+		    							<span class="ml-auto"><a href="#" class="book-now-btn" data-hotel="heritage-hotel">Book Now</a></span>
 		    						</p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-md-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="hotel-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&fit=crop);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-		    					</a>
+		    					<div class="hotel-gallery-container">
+		    						<div class="img img-2 d-flex justify-content-center align-items-center hotel-main-image" 
+		    							 style="background-image: url(https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&fit=crop);"
+		    							 data-hotel="beach-resort">
+		    							<div class="gallery-overlay">
+		    								<div class="gallery-buttons">
+		    									<button class="btn btn-light btn-sm me-2" onclick="openGallery('beach-resort')">
+		    										<i class="fa fa-camera"></i> Gallery (6)
+		    									</button>
+		    									<button class="btn btn-primary btn-sm" onclick="start360Tour('beach-resort')">
+		    										<i class="fa fa-eye"></i> 360° Tour
+		    									</button>
+		    								</div>
+			    						</div>
+			    						<div class="icon d-flex justify-content-center align-items-center">
+	    							<span class="icon-search2"></span>
+	    						</div>
+		    					</div>
+		    					<!-- Hidden gallery images -->
+		    					<div class="hidden-gallery" data-hotel="beach-resort" style="display: none;">
+		    						<img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop" alt="Beach Resort Exterior">
+		    						<img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=600&fit=crop" alt="Beachfront Family Room">
+		    						<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop" alt="Kids Club Activities">
+		    						<img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop" alt="Water Sports Center">
+		    						<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop" alt="Beach Access">
+		    						<img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop" alt="Family Restaurant">
+		    					</div>
+		    				</div>
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
@@ -357,10 +410,18 @@
 		    						<div class="amenities mb-2">
 		    							<small>🏖️ Beach Access | 👧 Kids Club | 🏄 Water Sports | 🛏️ Family Rooms</small>
 		    						</div>
+		    						<div class="hotel-actions mb-2">
+		    							<button class="btn btn-outline-info btn-sm me-2" onclick="showVirtualTour('beach-resort')">
+		    								📱 Virtual Tour
+		    							</button>
+		    							<button class="btn btn-outline-success btn-sm" onclick="showReviews('beach-resort')">
+		    								⭐ Family Reviews
+		    							</button>
+		    						</div>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
 		    							<span><i class="icon-map-o"></i> Casuarina Beach</span> 
-		    							<span class="ml-auto"><a href="#">Book Now</a></span>
+		    							<span class="ml-auto"><a href="#" class="book-now-btn" data-hotel="beach-resort">Book Now</a></span>
 		    						</p>
 		    					</div>
 		    				</div>
@@ -619,6 +680,109 @@
         </div>
       </div>
     </footer>
+    
+    <!-- Photo Gallery Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="galleryModalTitle">Hotel Gallery</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="gallery-container">
+              <div class="main-image-container">
+                <img id="mainGalleryImage" src="" alt="" class="img-fluid w-100">
+                <div class="image-counter">
+                  <span id="imageCounter">1 / 5</span>
+                </div>
+                <div class="gallery-navigation">
+                  <button class="btn btn-light gallery-nav-btn" id="prevBtn" onclick="previousImage()">
+                    <i class="fa fa-chevron-left"></i>
+                  </button>
+                  <button class="btn btn-light gallery-nav-btn" id="nextBtn" onclick="nextImage()">
+                    <i class="fa fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="thumbnail-container mt-3">
+                <div class="row" id="thumbnailRow">
+                  <!-- Thumbnails will be populated here -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="start360Tour(currentHotel)">
+              <i class="fa fa-eye"></i> Start 360° Tour
+            </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Virtual Tour Modal -->
+    <div class="modal fade" id="virtualTourModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="tourModalTitle">360° Virtual Tour</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="virtual-tour-container" id="virtualTourContainer">
+              <div class="tour-loading text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <p class="mt-3">Loading virtual tour...</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="tour-controls">
+              <button class="btn btn-outline-primary btn-sm" onclick="resetTourView()">
+                <i class="fa fa-refresh"></i> Reset View
+              </button>
+              <button class="btn btn-outline-info btn-sm" onclick="toggleFullscreen()">
+                <i class="fa fa-expand"></i> Fullscreen
+              </button>
+            </div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close Tour</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Family Reviews Modal -->
+    <div class="modal fade" id="reviewsModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="reviewsModalTitle">Family Reviews</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="reviewsContainer">
+              <!-- Reviews will be populated here -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="writeReview(currentHotel)">
+              ✍️ Write a Review
+            </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     
   
 
