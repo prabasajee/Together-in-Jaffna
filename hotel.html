@@ -71,21 +71,21 @@
         	<div class="col-lg-3 sidebar">
         		<div class="sidebar-wrap bg-light ftco-animate">
         			<h3 class="heading mb-4">🏨 Find Family Hotels</h3>
-        			<form action="#">
+        			<form action="#" id="hotelSearchForm">
         				<div class="fields">
 		              <div class="form-group">
-		                <input type="text" class="form-control" placeholder="Search by hotel name or area">
+		                <input type="text" id="hotelSearch" class="form-control" placeholder="Search by hotel name or area" onkeyup="filterHotels()">
 		              </div>
 		              <div class="form-group">
 		                <div class="select-wrap one-third">
 	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control" placeholder="Choose area">
-	                      <option value="">Select Area in Jaffna</option>
-	                      <option value="">Jaffna City Center</option>
-	                      <option value="">Nallur Temple Area</option>
-	                      <option value="">Jaffna Fort Vicinity</option>
-	                      <option value="">Casuarina Beach</option>
-	                      <option value="">Point Pedro</option>
+	                    <select name="area" id="areaFilter" class="form-control" onchange="filterHotels()">
+	                      <option value="">All Areas in Jaffna</option>
+	                      <option value="city-center">Jaffna City Center</option>
+	                      <option value="nallur">Nallur Temple Area</option>
+	                      <option value="fort">Jaffna Fort Vicinity</option>
+	                      <option value="beach">Casuarina Beach</option>
+	                      <option value="point-pedro">Point Pedro</option>
 	                    </select>
 	                  </div>
 		              </div>
@@ -98,36 +98,141 @@
 		              <div class="form-group">
 		                <div class="select-wrap one-third">
 	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control">
+	                    <select name="children" id="childrenFilter" class="form-control" onchange="filterHotels()">
 	                      <option value="">Number of Children</option>
-	                      <option value="">No Children</option>
-	                      <option value="">1 Child</option>
-	                      <option value="">2 Children</option>
-	                      <option value="">3+ Children</option>
+	                      <option value="0">No Children</option>
+	                      <option value="1">1 Child</option>
+	                      <option value="2">2 Children</option>
+	                      <option value="3+">3+ Children</option>
 	                    </select>
 	                  </div>
 		              </div>
+		              
+		              <!-- Age-Specific Filters -->
+		              <div class="form-group">
+		              	<h5>👶 Age Groups</h5>
+		              	<div class="checkbox-wrap">
+		              		<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="age_groups[]" value="infant" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Infants (0-2 years)
+			              	</label>
+			              	<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="age_groups[]" value="toddler" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Toddlers (3-5 years)
+			              	</label>
+			              	<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="age_groups[]" value="kids" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Kids (6-12 years)
+			              	</label>
+			              	<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="age_groups[]" value="teens" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Teens (13+ years)
+			              	</label>
+		              	</div>
+		              </div>
+		              
 		              <div class="form-group">
 		              	<div class="range-slider">
 		              		<span>
 		              			<label>Price Range (LKR per night):</label><br>
-										    <input type="number" value="5000" min="0" max="50000" placeholder="Min"/>	-
-										    <input type="number" value="15000" min="0" max="50000" placeholder="Max"/>
-										  </span>
-										</div>
+		              			<div class="price-inputs d-flex">
+										    <input type="number" id="minPrice" value="5000" min="0" max="50000" placeholder="Min" onchange="filterHotels()"/>
+										    <span class="mx-2">-</span>
+										    <input type="number" id="maxPrice" value="15000" min="0" max="50000" placeholder="Max" onchange="filterHotels()"/>
+										  </div>
+		              		</span>
+		              	</div>
 		              </div>
+		              
+		              <!-- Distance Filter -->
+		              <div class="form-group">
+		              	<h5>📍 Distance from Attractions</h5>
+		              	<div class="select-wrap one-third">
+	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+	                    <select name="distance" id="distanceFilter" class="form-control" onchange="filterHotels()">
+	                      <option value="">Any Distance</option>
+	                      <option value="walking">Walking Distance (< 1km)</option>
+	                      <option value="nearby">Nearby (1-3km)</option>
+	                      <option value="city">Within City (3-10km)</option>
+	                    </select>
+	                  </div>
+		              </div>
+		              
+		              <!-- Accessibility Options -->
+		              <div class="form-group">
+		              	<h5>♿ Accessibility</h5>
+		              	<div class="checkbox-wrap">
+		              		<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="accessibility[]" value="wheelchair" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Wheelchair Accessible
+			              	</label>
+			              	<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="accessibility[]" value="elevator" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Elevator Access
+			              	</label>
+			              	<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="accessibility[]" value="ground-floor" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Ground Floor Rooms
+			              	</label>
+		              	</div>
+		              </div>
+		              
 		              <!-- Family Amenities -->
 		              <div class="form-group">
 		              	<h5>👨‍👩‍👧‍👦 Family Amenities</h5>
 		              	<div class="checkbox-wrap">
 		              		<label class="checkbox-item d-block">
-			              		<input type="checkbox" name="amenities[]" value="family-rooms">
+			              		<input type="checkbox" name="amenities[]" value="family-rooms" onchange="filterHotels()">
 			              		<span class="checkmark"></span>
 			              		Family Rooms
 			              	</label>
 			              	<label class="checkbox-item d-block">
-			              		<input type="checkbox" name="amenities[]" value="kids-pool">
+			              		<input type="checkbox" name="amenities[]" value="kids-pool" onchange="filterHotels()">
 			              		<span class="checkmark"></span>
+			              		Kids Pool
+			              	</label>
+			              	<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="amenities[]" value="playground" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Playground
+			              	</label>
+			              	<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="amenities[]" value="baby-crib" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Baby Crib Available
+			              	</label>
+			              	<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="amenities[]" value="kids-menu" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Kids Menu
+			              	</label>
+			              	<label class="checkbox-item d-block">
+			              		<input type="checkbox" name="amenities[]" value="babysitting" onchange="filterHotels()">
+			              		<span class="checkmark"></span>
+			              		Babysitting Service
+			              	</label>
+		              	</div>
+		              </div>
+		              
+		              <!-- Search Buttons -->
+		              <div class="form-group">
+		                <input type="submit" value="🔍 Search Family Hotels" class="btn btn-primary py-3 px-5 w-100 mb-2">
+		                <button type="button" onclick="clearAllFilters()" class="btn btn-outline-secondary py-2 px-3 w-100">🔄 Clear All Filters</button>
+		              </div>
+		              
+		              <!-- Results Counter -->
+		              <div class="form-group">
+		              	<div class="alert alert-info text-center" id="resultsCounter">
+		              		<small>Showing <span id="hotelCount">5</span> family hotels</small>
+		              	</div>
+		              </div>
 			              		Kids Pool
 			              	</label>
 			              	<label class="checkbox-item d-block">
@@ -706,6 +811,250 @@
 
     // Initialize map when page loads
     window.addEventListener('load', initHotelMap);
+  </script>
+  
+  <!-- Advanced Hotel Filtering Script -->
+  <script>
+    // Hotel data with detailed information for filtering
+    const hotelData = [
+      {
+        id: 'heritage-hotel',
+        name: 'Jaffna Heritage Hotel',
+        element: null, // Will be set on page load
+        area: 'city-center',
+        price: 8500,
+        distance: 'walking',
+        amenities: ['family-rooms', 'kids-pool', 'playground', 'baby-crib', 'kids-menu'],
+        accessibility: ['wheelchair', 'elevator'],
+        ageGroups: ['infant', 'toddler', 'kids', 'teens'],
+        keywords: 'heritage hotel city center cultural pool play area cribs kids menu'
+      },
+      {
+        id: 'beach-resort',
+        name: 'Beach Resort Jaffna', 
+        element: null,
+        area: 'beach',
+        price: 12000,
+        distance: 'nearby',
+        amenities: ['family-rooms', 'kids-pool', 'playground', 'babysitting'],
+        accessibility: ['wheelchair', 'ground-floor'],
+        ageGroups: ['toddler', 'kids', 'teens'],
+        keywords: 'beach resort casuarina water sports kids club family rooms'
+      },
+      {
+        id: 'temple-lodge',
+        name: 'Nallur Temple Lodge',
+        element: null,
+        area: 'nallur', 
+        price: 6500,
+        distance: 'walking',
+        amenities: ['family-rooms', 'kids-menu', 'baby-crib'],
+        accessibility: ['ground-floor'],
+        ageGroups: ['infant', 'toddler', 'kids'],
+        keywords: 'nallur temple lodge cultural traditional family rooms views'
+      },
+      {
+        id: 'fort-hotel',
+        name: 'Jaffna Fort Hotel',
+        element: null,
+        area: 'fort',
+        price: 7200,
+        distance: 'walking', 
+        amenities: ['family-rooms', 'playground', 'kids-menu'],
+        accessibility: ['elevator'],
+        ageGroups: ['kids', 'teens'],
+        keywords: 'fort hotel historic connecting rooms educational tours kids activities'
+      },
+      {
+        id: 'garden-inn',
+        name: 'Garden Inn Jaffna',
+        element: null,
+        area: 'point-pedro',
+        price: 5800,
+        distance: 'city',
+        amenities: ['family-rooms', 'playground', 'baby-crib'],
+        accessibility: ['ground-floor'],
+        ageGroups: ['infant', 'toddler', 'kids'],
+        keywords: 'garden inn budget friendly bike rentals playground point pedro'
+      }
+    ];
+
+    // Initialize hotel elements on page load
+    function initializeHotelElements() {
+      hotelData.forEach(hotel => {
+        // Find hotel element by searching for hotel name in h3 tags
+        const hotelElements = document.querySelectorAll('.destination h3 a');
+        hotelElements.forEach(element => {
+          if (element.textContent.includes(hotel.name.replace('🏨 ', '').replace('🌊 ', '').replace('🏛️ ', '').replace('🏰 ', '').replace('🌺 ', ''))) {
+            hotel.element = element.closest('.col-md-4');
+          }
+        });
+      });
+    }
+
+    // Main filtering function
+    function filterHotels() {
+      const searchTerm = document.getElementById('hotelSearch').value.toLowerCase();
+      const area = document.getElementById('areaFilter').value;
+      const children = document.getElementById('childrenFilter').value;
+      const distance = document.getElementById('distanceFilter').value;
+      const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+      const maxPrice = parseInt(document.getElementById('maxPrice').value) || 999999;
+
+      // Get selected age groups
+      const selectedAgeGroups = Array.from(document.querySelectorAll('input[name="age_groups[]"]:checked'))
+        .map(cb => cb.value);
+
+      // Get selected amenities
+      const selectedAmenities = Array.from(document.querySelectorAll('input[name="amenities[]"]:checked'))
+        .map(cb => cb.value);
+
+      // Get selected accessibility options
+      const selectedAccessibility = Array.from(document.querySelectorAll('input[name="accessibility[]"]:checked'))
+        .map(cb => cb.value);
+
+      let visibleCount = 0;
+
+      hotelData.forEach(hotel => {
+        let shouldShow = true;
+
+        // Text search filter
+        if (searchTerm && !hotel.keywords.includes(searchTerm)) {
+          shouldShow = false;
+        }
+
+        // Area filter
+        if (area && hotel.area !== area) {
+          shouldShow = false;
+        }
+
+        // Distance filter
+        if (distance && hotel.distance !== distance) {
+          shouldShow = false;
+        }
+
+        // Price range filter
+        if (hotel.price < minPrice || hotel.price > maxPrice) {
+          shouldShow = false;
+        }
+
+        // Age groups filter
+        if (selectedAgeGroups.length > 0) {
+          const hasMatchingAgeGroup = selectedAgeGroups.some(age => hotel.ageGroups.includes(age));
+          if (!hasMatchingAgeGroup) {
+            shouldShow = false;
+          }
+        }
+
+        // Amenities filter
+        if (selectedAmenities.length > 0) {
+          const hasAllAmenities = selectedAmenities.every(amenity => hotel.amenities.includes(amenity));
+          if (!hasAllAmenities) {
+            shouldShow = false;
+          }
+        }
+
+        // Accessibility filter
+        if (selectedAccessibility.length > 0) {
+          const hasAccessibility = selectedAccessibility.some(access => hotel.accessibility.includes(access));
+          if (!hasAccessibility) {
+            shouldShow = false;
+          }
+        }
+
+        // Show/hide hotel element
+        if (hotel.element) {
+          if (shouldShow) {
+            hotel.element.style.display = 'block';
+            hotel.element.style.opacity = '1';
+            hotel.element.style.transform = 'scale(1)';
+            visibleCount++;
+          } else {
+            hotel.element.style.display = 'none';
+            hotel.element.style.opacity = '0';
+            hotel.element.style.transform = 'scale(0.95)';
+          }
+        }
+      });
+
+      // Update results counter
+      document.getElementById('hotelCount').textContent = visibleCount;
+      
+      // Show/hide no results message
+      showNoResultsMessage(visibleCount === 0);
+    }
+
+    // Clear all filters
+    function clearAllFilters() {
+      // Reset all form inputs
+      document.getElementById('hotelSearch').value = '';
+      document.getElementById('areaFilter').value = '';
+      document.getElementById('childrenFilter').value = '';
+      document.getElementById('distanceFilter').value = '';
+      document.getElementById('minPrice').value = '5000';
+      document.getElementById('maxPrice').value = '15000';
+
+      // Uncheck all checkboxes
+      document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+      });
+
+      // Show all hotels
+      hotelData.forEach(hotel => {
+        if (hotel.element) {
+          hotel.element.style.display = 'block';
+          hotel.element.style.opacity = '1';
+          hotel.element.style.transform = 'scale(1)';
+        }
+      });
+
+      // Update counter
+      document.getElementById('hotelCount').textContent = hotelData.length;
+      showNoResultsMessage(false);
+    }
+
+    // Show/hide no results message
+    function showNoResultsMessage(show) {
+      let noResultsDiv = document.getElementById('noResults');
+      
+      if (show && !noResultsDiv) {
+        // Create no results message
+        noResultsDiv = document.createElement('div');
+        noResultsDiv.id = 'noResults';
+        noResultsDiv.className = 'col-12 text-center my-5';
+        noResultsDiv.innerHTML = `
+          <div class="alert alert-warning">
+            <h4>😔 No hotels match your criteria</h4>
+            <p>Try adjusting your filters or <button class="btn btn-link p-0" onclick="clearAllFilters()">clear all filters</button> to see more options.</p>
+          </div>
+        `;
+        
+        // Insert after the first hotel row
+        const hotelRow = document.querySelector('.col-lg-9 .row');
+        hotelRow.appendChild(noResultsDiv);
+      } else if (!show && noResultsDiv) {
+        noResultsDiv.remove();
+      }
+    }
+
+    // Initialize on page load
+    window.addEventListener('load', function() {
+      initializeHotelElements();
+      // Add smooth transitions to hotel cards
+      const style = document.createElement('style');
+      style.textContent = `
+        .destination {
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .price-inputs {
+          gap: 10px;
+        }
+        .price-inputs input {
+          flex: 1;
+        }
+      `;
+      document.head.appendChild(style);
+    });
   </script>
     
   </body>
