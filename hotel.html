@@ -295,11 +295,33 @@
           	<div class="row">
           		<div class="col-md-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="hotel-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-		    					</a>
+		    					<div class="hotel-gallery-container">
+		    						<div class="img img-2 d-flex justify-content-center align-items-center hotel-main-image" 
+		    							 style="background-image: url(https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop);"
+		    							 data-hotel="heritage-hotel">
+		    							<div class="gallery-overlay">
+		    								<div class="gallery-buttons">
+		    									<button class="btn btn-light btn-sm me-2" onclick="openGallery('heritage-hotel')">
+		    										<i class="fa fa-camera"></i> Gallery (5)
+		    									</button>
+		    									<button class="btn btn-primary btn-sm" onclick="start360Tour('heritage-hotel')">
+		    										<i class="fa fa-eye"></i> 360° Tour
+		    									</button>
+		    								</div>
+			    						</div>
+			    						<div class="icon d-flex justify-content-center align-items-center">
+	    							<span class="icon-search2"></span>
+	    						</div>
+		    					</div>
+		    					<!-- Hidden gallery images -->
+		    					<div class="hidden-gallery" data-hotel="heritage-hotel" style="display: none;">
+		    						<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop" alt="Heritage Hotel Exterior">
+		    						<img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop" alt="Family Room">
+		    						<img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop" alt="Kids Pool Area">
+		    						<img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop" alt="Restaurant & Kids Menu">
+		    						<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop" alt="Playground">
+		    					</div>
+		    				</div>
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
@@ -321,21 +343,52 @@
 		    						<div class="amenities mb-2">
 		    							<small>🏊‍♀️ Kids Pool | 🎮 Play Area | 👶 Cribs Available | 🍽️ Kids Menu</small>
 		    						</div>
+		    						<div class="hotel-actions mb-2">
+		    							<button class="btn btn-outline-info btn-sm me-2" onclick="showVirtualTour('heritage-hotel')">
+		    								📱 Virtual Tour
+		    							</button>
+		    							<button class="btn btn-outline-success btn-sm" onclick="showReviews('heritage-hotel')">
+		    								⭐ Family Reviews
+		    							</button>
+		    						</div>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
 		    							<span><i class="icon-map-o"></i> Jaffna City Center</span> 
-		    							<span class="ml-auto"><a href="#">Book Now</a></span>
+		    							<span class="ml-auto"><a href="#" class="book-now-btn" data-hotel="heritage-hotel">Book Now</a></span>
 		    						</p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-md-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="hotel-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&fit=crop);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-search2"></span>
-    						</div>
-		    					</a>
+		    					<div class="hotel-gallery-container">
+		    						<div class="img img-2 d-flex justify-content-center align-items-center hotel-main-image" 
+		    							 style="background-image: url(https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&fit=crop);"
+		    							 data-hotel="beach-resort">
+		    							<div class="gallery-overlay">
+		    								<div class="gallery-buttons">
+		    									<button class="btn btn-light btn-sm me-2" onclick="openGallery('beach-resort')">
+		    										<i class="fa fa-camera"></i> Gallery (6)
+		    									</button>
+		    									<button class="btn btn-primary btn-sm" onclick="start360Tour('beach-resort')">
+		    										<i class="fa fa-eye"></i> 360° Tour
+		    									</button>
+		    								</div>
+			    						</div>
+			    						<div class="icon d-flex justify-content-center align-items-center">
+	    							<span class="icon-search2"></span>
+	    						</div>
+		    					</div>
+		    					<!-- Hidden gallery images -->
+		    					<div class="hidden-gallery" data-hotel="beach-resort" style="display: none;">
+		    						<img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop" alt="Beach Resort Exterior">
+		    						<img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=600&fit=crop" alt="Beachfront Family Room">
+		    						<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop" alt="Kids Club Activities">
+		    						<img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop" alt="Water Sports Center">
+		    						<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop" alt="Beach Access">
+		    						<img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop" alt="Family Restaurant">
+		    					</div>
+		    				</div>
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
@@ -357,10 +410,18 @@
 		    						<div class="amenities mb-2">
 		    							<small>🏖️ Beach Access | 👧 Kids Club | 🏄 Water Sports | 🛏️ Family Rooms</small>
 		    						</div>
+		    						<div class="hotel-actions mb-2">
+		    							<button class="btn btn-outline-info btn-sm me-2" onclick="showVirtualTour('beach-resort')">
+		    								📱 Virtual Tour
+		    							</button>
+		    							<button class="btn btn-outline-success btn-sm" onclick="showReviews('beach-resort')">
+		    								⭐ Family Reviews
+		    							</button>
+		    						</div>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
 		    							<span><i class="icon-map-o"></i> Casuarina Beach</span> 
-		    							<span class="ml-auto"><a href="#">Book Now</a></span>
+		    							<span class="ml-auto"><a href="#" class="book-now-btn" data-hotel="beach-resort">Book Now</a></span>
 		    						</p>
 		    					</div>
 		    				</div>
@@ -620,6 +681,109 @@
       </div>
     </footer>
     
+    <!-- Photo Gallery Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="galleryModalTitle">Hotel Gallery</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="gallery-container">
+              <div class="main-image-container">
+                <img id="mainGalleryImage" src="" alt="" class="img-fluid w-100">
+                <div class="image-counter">
+                  <span id="imageCounter">1 / 5</span>
+                </div>
+                <div class="gallery-navigation">
+                  <button class="btn btn-light gallery-nav-btn" id="prevBtn" onclick="previousImage()">
+                    <i class="fa fa-chevron-left"></i>
+                  </button>
+                  <button class="btn btn-light gallery-nav-btn" id="nextBtn" onclick="nextImage()">
+                    <i class="fa fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="thumbnail-container mt-3">
+                <div class="row" id="thumbnailRow">
+                  <!-- Thumbnails will be populated here -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="start360Tour(currentHotel)">
+              <i class="fa fa-eye"></i> Start 360° Tour
+            </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Virtual Tour Modal -->
+    <div class="modal fade" id="virtualTourModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="tourModalTitle">360° Virtual Tour</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="virtual-tour-container" id="virtualTourContainer">
+              <div class="tour-loading text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <p class="mt-3">Loading virtual tour...</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="tour-controls">
+              <button class="btn btn-outline-primary btn-sm" onclick="resetTourView()">
+                <i class="fa fa-refresh"></i> Reset View
+              </button>
+              <button class="btn btn-outline-info btn-sm" onclick="toggleFullscreen()">
+                <i class="fa fa-expand"></i> Fullscreen
+              </button>
+            </div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close Tour</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Family Reviews Modal -->
+    <div class="modal fade" id="reviewsModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="reviewsModalTitle">Family Reviews</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="reviewsContainer">
+              <!-- Reviews will be populated here -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="writeReview(currentHotel)">
+              ✍️ Write a Review
+            </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   
 
   <!-- loader -->
@@ -700,8 +864,7 @@
           type: "hotel"
         }
       ];
-
-      // Family attractions
+    
       const attractions = [
         {
           name: "🏛️ Nallur Kandaswamy Temple",
@@ -1073,6 +1236,436 @@
       `;
       document.head.appendChild(style);
     });
+  </script>
+  
+  <!-- Photo Gallery & Virtual Tour Script -->
+  <script>
+    let currentHotel = '';
+    let currentImageIndex = 0;
+    let currentImages = [];
+
+    // Hotel gallery data
+    const hotelGalleries = {
+      'heritage-hotel': {
+        name: 'Jaffna Heritage Hotel',
+        images: [
+          { src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop', alt: 'Heritage Hotel Exterior', description: 'Beautiful traditional architecture with modern amenities' },
+          { src: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop', alt: 'Family Room', description: 'Spacious family rooms with connecting options' },
+          { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop', alt: 'Kids Pool Area', description: 'Safe shallow pool area designed for children' },
+          { src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop', alt: 'Restaurant & Kids Menu', description: 'Family restaurant with special kids menu options' },
+          { src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop', alt: 'Playground', description: 'Well-equipped playground for different age groups' }
+        ]
+      },
+      'beach-resort': {
+        name: 'Beach Resort Jaffna',
+        images: [
+          { src: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=600&fit=crop', alt: 'Beach Resort Exterior', description: 'Stunning beachfront location with panoramic views' },
+          { src: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=600&fit=crop', alt: 'Beachfront Family Room', description: 'Ocean-view family suites with private balconies' },
+          { src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop', alt: 'Kids Club Activities', description: 'Supervised kids club with educational and fun activities' },
+          { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop', alt: 'Water Sports Center', description: 'Family-friendly water sports and beach activities' },
+          { src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop', alt: 'Beach Access', description: 'Direct access to pristine Casuarina Beach' },
+          { src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop', alt: 'Family Restaurant', description: 'Beachside dining with international and local cuisine' }
+        ]
+      }
+    };
+
+    // Family reviews data
+    const hotelReviews = {
+      'heritage-hotel': [
+        {
+          family: 'The Johnson Family',
+          children: '2 kids (ages 6, 9)',
+          rating: 5,
+          date: 'July 2025',
+          review: 'Perfect for families! The kids loved the playground and pool. Staff was incredibly helpful with cribs and high chairs. Great location near Nallur Temple.',
+          helpful: 24
+        },
+        {
+          family: 'Sarah & Michael with twins',
+          children: '2 toddlers (age 3)',
+          rating: 5,
+          date: 'June 2025',
+          review: 'Excellent facilities for toddlers. Baby-proofed rooms, shallow kids pool, and amazing kids menu. The cultural programs were educational for the whole family.',
+          helpful: 18
+        },
+        {
+          family: 'The Patel Family',
+          children: '3 kids (ages 5, 8, 12)',
+          rating: 4,
+          date: 'May 2025',
+          review: 'Great hotel with something for every age. The older kids enjoyed the cultural tours while the younger ones loved the playground. Only minor issue was WiFi in some rooms.',
+          helpful: 15
+        }
+      ],
+      'beach-resort': [
+        {
+          family: 'Beach-loving Browns',
+          children: '1 teenager, 1 kid (ages 14, 7)',
+          rating: 5,
+          date: 'August 2025',
+          review: 'Amazing beach access! Teen loved the water sports while the 7-year-old had a blast in the kids club. Direct beach access made it so convenient.',
+          helpful: 31
+        },
+        {
+          family: 'Adventure Family',
+          children: '2 kids (ages 9, 11)',
+          rating: 4,
+          date: 'July 2025',
+          review: 'Kids club was fantastic - supervised activities gave us parents some relaxation time. Beach is beautiful and safe for children. Great family resort experience.',
+          helpful: 22
+        }
+      ]
+    };
+
+    // Open photo gallery
+    function openGallery(hotelId) {
+      currentHotel = hotelId;
+      const gallery = hotelGalleries[hotelId];
+      
+      if (!gallery) return;
+      
+      currentImages = gallery.images;
+      currentImageIndex = 0;
+      
+      document.getElementById('galleryModalTitle').textContent = gallery.name + ' - Photo Gallery';
+      updateGalleryImage();
+      createThumbnails();
+      
+      $('#galleryModal').modal('show');
+    }
+
+    // Update main gallery image
+    function updateGalleryImage() {
+      const image = currentImages[currentImageIndex];
+      document.getElementById('mainGalleryImage').src = image.src;
+      document.getElementById('mainGalleryImage').alt = image.alt;
+      document.getElementById('imageCounter').textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+      
+      // Update thumbnails selection
+      document.querySelectorAll('.thumbnail-img').forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentImageIndex);
+      });
+    }
+
+    // Create thumbnail images
+    function createThumbnails() {
+      const thumbnailRow = document.getElementById('thumbnailRow');
+      thumbnailRow.innerHTML = '';
+      
+      currentImages.forEach((image, index) => {
+        const col = document.createElement('div');
+        col.className = 'col-2';
+        col.innerHTML = `
+          <img src="${image.src}" alt="${image.alt}" 
+               class="thumbnail-img img-fluid rounded cursor-pointer ${index === 0 ? 'active' : ''}"
+               onclick="jumpToImage(${index})"
+               style="height: 60px; object-fit: cover; cursor: pointer; border: 2px solid ${index === 0 ? '#007bff' : 'transparent'};">
+        `;
+        thumbnailRow.appendChild(col);
+      });
+    }
+
+    // Navigation functions
+    function previousImage() {
+      currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+      updateGalleryImage();
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+      updateGalleryImage();
+    }
+
+    function jumpToImage(index) {
+      currentImageIndex = index;
+      updateGalleryImage();
+    }
+
+    // 360° Virtual Tour
+    function start360Tour(hotelId) {
+      currentHotel = hotelId;
+      const hotelName = hotelGalleries[hotelId]?.name || 'Hotel';
+      
+      document.getElementById('tourModalTitle').textContent = hotelName + ' - 360° Virtual Tour';
+      
+      // Close gallery modal if open
+      $('#galleryModal').modal('hide');
+      
+      // Show tour modal
+      $('#virtualTourModal').modal('show');
+      
+      // Simulate loading and create 360° tour
+      setTimeout(() => {
+        createVirtualTour(hotelId);
+      }, 1000);
+    }
+
+    // Create virtual tour content
+    function createVirtualTour(hotelId) {
+      const container = document.getElementById('virtualTourContainer');
+      
+      const tourHtml = `
+        <div class="tour-scene active" data-scene="lobby">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=600&fit=crop" 
+               class="tour-image img-fluid" alt="Hotel Lobby 360°">
+          <div class="tour-hotspots">
+            <div class="hotspot" style="top: 40%; left: 20%;" onclick="switchScene('rooms')" title="Family Rooms">
+              <div class="hotspot-marker">🛏️</div>
+            </div>
+            <div class="hotspot" style="top: 60%; left: 70%;" onclick="switchScene('pool')" title="Kids Pool">
+              <div class="hotspot-marker">🏊‍♀️</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tour-scene" data-scene="rooms">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&h=600&fit=crop" 
+               class="tour-image img-fluid" alt="Family Room 360°">
+          <div class="tour-hotspots">
+            <div class="hotspot" style="top: 30%; left: 80%;" onclick="switchScene('lobby')" title="Back to Lobby">
+              <div class="hotspot-marker">🏨</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tour-scene" data-scene="pool">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&h=600&fit=crop" 
+               class="tour-image img-fluid" alt="Pool Area 360°">
+          <div class="tour-hotspots">
+            <div class="hotspot" style="top: 20%; left: 60%;" onclick="switchScene('lobby')" title="Back to Lobby">
+              <div class="hotspot-marker">🏨</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tour-navigation">
+          <button class="btn btn-primary btn-sm" onclick="switchScene('lobby')">🏨 Lobby</button>
+          <button class="btn btn-primary btn-sm" onclick="switchScene('rooms')">🛏️ Family Rooms</button>
+          <button class="btn btn-primary btn-sm" onclick="switchScene('pool')">🏊‍♀️ Pool Area</button>
+        </div>
+      `;
+      
+      container.innerHTML = tourHtml;
+    }
+
+    // Switch virtual tour scenes
+    function switchScene(sceneName) {
+      document.querySelectorAll('.tour-scene').forEach(scene => {
+        scene.classList.remove('active');
+      });
+      document.querySelector(`[data-scene="${sceneName}"]`).classList.add('active');
+    }
+
+    // Show family reviews
+    function showReviews(hotelId) {
+      currentHotel = hotelId;
+      const hotelName = hotelGalleries[hotelId]?.name || 'Hotel';
+      const reviews = hotelReviews[hotelId] || [];
+      
+      document.getElementById('reviewsModalTitle').textContent = hotelName + ' - Family Reviews';
+      
+      const container = document.getElementById('reviewsContainer');
+      
+      if (reviews.length === 0) {
+        container.innerHTML = '<p class="text-center">No family reviews yet. Be the first to share your experience!</p>';
+      } else {
+        container.innerHTML = reviews.map(review => `
+          <div class="review-card border rounded p-3 mb-3">
+            <div class="review-header d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h6 class="mb-1">${review.family}</h6>
+                <small class="text-muted">${review.children} • ${review.date}</small>
+              </div>
+              <div class="rating">
+                ${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}
+              </div>
+            </div>
+            <p class="review-text mb-2">${review.review}</p>
+            <small class="text-muted">👍 ${review.helpful} families found this helpful</small>
+          </div>
+        `).join('');
+      }
+      
+      $('#reviewsModal').modal('show');
+    }
+
+    // Virtual tour functions
+    function resetTourView() {
+      switchScene('lobby');
+    }
+
+    function toggleFullscreen() {
+      const container = document.getElementById('virtualTourContainer');
+      if (container.requestFullscreen) {
+        container.requestFullscreen();
+      }
+    }
+
+    // Show virtual tour (alternative entry point)
+    function showVirtualTour(hotelId) {
+      start360Tour(hotelId);
+    }
+
+    // Write review function
+    function writeReview(hotelId) {
+      alert('Review form would open here. This feature connects to your review system.');
+    }
+
+    // Enhanced CSS for gallery and tour
+    const galleryStyles = `
+      <style>
+        .hotel-gallery-container {
+          position: relative;
+          overflow: hidden;
+          border-radius: 10px;
+        }
+        
+        .hotel-main-image {
+          transition: transform 0.3s ease;
+          position: relative;
+        }
+        
+        .hotel-main-image:hover {
+          transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0,0,0,0.7);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        
+        .hotel-main-image:hover .gallery-overlay {
+          opacity: 1;
+        }
+        
+        .gallery-buttons {
+          display: flex;
+          gap: 10px;
+        }
+        
+        .thumbnail-img {
+          transition: border-color 0.3s ease, opacity 0.3s ease;
+          opacity: 0.7;
+        }
+        
+        .thumbnail-img:hover {
+          opacity: 1;
+          border-color: #007bff !important;
+        }
+        
+        .thumbnail-img.active {
+          opacity: 1;
+          border-color: #007bff !important;
+        }
+        
+        .gallery-navigation {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: space-between;
+          padding: 0 20px;
+          transform: translateY(-50%);
+        }
+        
+        .gallery-nav-btn {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .image-counter {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          background: rgba(0,0,0,0.7);
+          color: white;
+          padding: 5px 10px;
+          border-radius: 15px;
+          font-size: 12px;
+        }
+        
+        .tour-scene {
+          display: none;
+          position: relative;
+        }
+        
+        .tour-scene.active {
+          display: block;
+        }
+        
+        .tour-hotspots {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+        
+        .hotspot {
+          position: absolute;
+          cursor: pointer;
+          animation: pulse 2s infinite;
+        }
+        
+        .hotspot-marker {
+          background: #007bff;
+          color: white;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .tour-navigation {
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 10px;
+        }
+        
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+          100% { transform: scale(1); }
+        }
+        
+        .hotel-actions {
+          display: flex;
+          gap: 5px;
+        }
+        
+        .review-card {
+          background: #f8f9fa;
+        }
+        
+        .rating {
+          color: #ffc107;
+          font-size: 18px;
+        }
+      </style>
+    `;
+    
+    document.head.insertAdjacentHTML('beforeend', galleryStyles);
   </script>
     
   </body>
