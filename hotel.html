@@ -919,7 +919,6 @@
 
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
-          // Attach event listener to the button after InfoWindow opens
           google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
             const btn = document.querySelector('.gm-style-iw .btn[data-hotel-name="' + hotel.name.replace(/"/g, '&quot;') + '"]');
             if (btn) {
@@ -931,7 +930,7 @@
         });
       });
 
-      // Create attraction markers
+    
       attractions.forEach(attraction => {
         let iconColor, iconEmoji;
         switch(attraction.type) {
