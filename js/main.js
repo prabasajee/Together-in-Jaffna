@@ -153,7 +153,7 @@
 
 
 	$('#dropdown04').on('show.bs.dropdown', function () {
-	  console.log('show');
+	  // Dropdown is being shown
 	});
 
 	// scroll
@@ -196,27 +196,6 @@
 	};
 	scrollWindow();
 
-	var isMobile = {
-		Android: function() {
-			return navigator.userAgent.match(/Android/i);
-		},
-			BlackBerry: function() {
-			return navigator.userAgent.match(/BlackBerry/i);
-		},
-			iOS: function() {
-			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-		},
-			Opera: function() {
-			return navigator.userAgent.match(/Opera Mini/i);
-		},
-			Windows: function() {
-			return navigator.userAgent.match(/IEMobile/i);
-		},
-			any: function() {
-			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-		}
-	};
-
 	
 	var counter = function() {
 		
@@ -228,7 +207,6 @@
 				$('.number').each(function(){
 					var $this = $(this),
 						num = $this.data('number');
-						console.log(num);
 					$this.animateNumber(
 					  {
 					    number: num,
@@ -300,7 +278,7 @@
 		  }
 		});
 		$('body').on('activate.bs.scrollspy', function () {
-		  console.log('nice');
+		  // Scrollspy activated
 		})
 	};
 	OnePageNav();
@@ -323,7 +301,7 @@
     },
     zoom: {
       enabled: true,
-      duration: 300 // don't foget to change the duration also in CSS
+      duration: 300 // don't forget to change the duration also in CSS
     }
   });
 
