@@ -108,6 +108,33 @@
         border-color: #004085;
       }
       
+      /* Notification System */
+      .notification {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        display: none;
+      }
+      
+      .notification.success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+      }
+      
+      .notification.error {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+      }
+      
+      .notification.warning {
+        color: #856404;
+        background-color: #fff3cd;
+        border-color: #ffeaa7;
+      }
+      
       /* FAQ Cards */
       .faq-card {
         margin-bottom: 1rem;
@@ -167,7 +194,7 @@
       </div>
     </div>
   </nav>
-    <!-- END nav -->
+
     
     <!-- Hero Section with Jaffna Fort View -->
     <div class="hero-wrap js-fullheight" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop');">
@@ -231,7 +258,6 @@
           </div>
         </div>
         
-        <!-- WhatsApp & Social Contact Section -->
         <div class="row mb-5">
           <div class="col-md-12">
             <div class="quick-connect-section">
@@ -262,6 +288,10 @@
             <div class="form-tip-alert">
               <small><strong>💡 Tip:</strong> The more details you provide, the better we can customize your family experience!</small>
             </div>
+            
+            <!-- Notification Area -->
+            <div id="notification" class="notification"></div>
+            
             <form action="#" method="post" id="familyTripForm">
               <div class="row">
                 <div class="col-md-6">
@@ -594,6 +624,22 @@
       });
     });
 
+    // Notification system
+    function showNotification(message, type = 'info') {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.className = 'notification ' + type;
+      notification.style.display = 'block';
+      
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 5000);
+      
+      // Scroll to notification
+      notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
     // Enhanced form validation
     document.getElementById('familyTripForm').addEventListener('submit', function(e) {
       const travelDate = document.getElementById('travelDate').value;
@@ -601,7 +647,7 @@
       
       // Basic validation
       if (!familySize) {
-        alert('Please select your family size to help us plan better!');
+        showNotification('Please select your family size to help us plan better!', 'error');
         e.preventDefault();
         return false;
       }
@@ -613,7 +659,7 @@
         today.setHours(0, 0, 0, 0);
         
         if (selectedDate < today) {
-          alert('Please select a travel date from today onwards.');
+          showNotification('Please select a travel date from today onwards.', 'error');
           e.preventDefault();
           return false;
         }
@@ -623,7 +669,7 @@
         twoYearsFromNow.setFullYear(today.getFullYear() + 2);
         
         if (selectedDate > twoYearsFromNow) {
-          alert('Please select a date within the next 2 years for better planning assistance.');
+          showNotification('Please select a date within the next 2 years for better planning assistance.', 'warning');
           e.preventDefault();
           return false;
         }
@@ -636,13 +682,13 @@
         selectedInterests.push(checkbox.value);
       });
       
-      // Optional: Show selected interests in confirmation (for development/testing)
+      // Form submission will handle the selected interests
       if (selectedInterests.length > 0) {
-        console.log('Selected interests:', selectedInterests.join(', '));
+        // Selected interests will be processed during form submission
       }
       
       // Show success message (you can replace this with actual form submission)
-      alert("Thank you for contacting us! We'll get back to you soon.");
+      showNotification("Thank you for contacting us! We'll get back to you soon.", 'success');
     });
 
     // Auto-update budget suggestions based on family size
