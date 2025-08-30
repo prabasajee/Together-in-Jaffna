@@ -1507,7 +1507,41 @@
 
     // Write review function
     function writeReview(hotelId) {
-      alert('Review form would open here. This feature connects to your review system.');
+      // Create a temporary notification for the review feature
+      const existingNotification = document.querySelector('.review-notification');
+      if (existingNotification) {
+        existingNotification.remove();
+      }
+      
+      const notification = document.createElement('div');
+      notification.className = 'review-notification';
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #d4edda;
+        color: #155724;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        border: 1px solid #c3e6cb;
+        z-index: 1000;
+        max-width: 300px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      `;
+      notification.innerHTML = `
+        <strong>Review Feature</strong><br>
+        Review functionality will be available soon. Thank you for your interest!
+        <button onclick="this.parentElement.remove()" style="float: right; background: none; border: none; font-size: 18px; cursor: pointer;">&times;</button>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        if (notification.parentElement) {
+          notification.remove();
+        }
+      }, 5000);
     }
 
     // Enhanced CSS for gallery and tour
