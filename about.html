@@ -23,12 +23,131 @@
   <link rel="stylesheet" href="css/flaticon.css">
   <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Custom Animation Styles -->
+  <style>
+    .floating-animation {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .pulse-animation {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    .slide-in-left {
+      animation: slideInLeft 1s ease-out forwards;
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .bounce-in {
+      animation: bounceIn 1.5s ease-out forwards;
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      70% {
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .rotate-hover:hover {
+      animation: rotateHover 0.3s ease-in-out;
+    }
+    
+    @keyframes rotateHover {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(5deg); }
+      100% { transform: rotate(0deg); }
+    }
+    
+    .nav-link {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .nav-link:hover::before {
+      left: 100%;
+    }
+    
+    .about-image {
+      transition: transform 0.3s ease;
+    }
+    
+    .about-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .card {
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
   <div class="container">
-    <a class="navbar-brand" href="index.html">🏛️ Jaffna Family Explorer</a>
+    <a class="navbar-brand floating-animation" href="index.html">🏛️ Jaffna Family Explorer</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="oi oi-menu"></span> Menu
     </button>
@@ -41,7 +160,7 @@
         <li class="nav-item"><a href="hotel.html" class="nav-link">Family Hotels</a></li>
         <li class="nav-item"><a href="blog.html" class="nav-link">Travel Tips</a></li>
         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        <li class="nav-item cta"><a href="contact.html" class="nav-link"><span>Plan Your Trip</span></a></li>
+        <li class="nav-item cta"><a href="contact.html" class="nav-link pulse-animation"><span>Plan Your Trip</span></a></li>
       </ul>
     </div>
   </div>
@@ -52,12 +171,15 @@
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-      <div class="col-md-9 text-center ftco-animate" data-scrollax="properties: { translateY: '70%' }">
-        <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+      <div class="col-md-9 text-center ftco-animate bounce-in" data-scrollax="properties: { translateY: '70%' }">
+        <p class="breadcrumbs fade-in-up" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="animation-delay: 0.3s;">
           <span class="mr-2"><a href="index.html">Home</a></span> 
           <span>About</span>
         </p>
-        <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">About Jaffna Family Explorer</h1>
+        <h1 class="mb-3 bread slide-in-left" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="animation-delay: 0.6s;">About Jaffna Family Explorer</h1>
+        <div class="fade-in-up" style="animation-delay: 0.9s;">
+          <p class="mb-0" style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 300;">Connecting Families with the Rich Heritage of Northern Sri Lanka</p>
+        </div>
       </div>
     </div>
   </div>
