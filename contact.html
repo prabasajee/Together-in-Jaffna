@@ -1293,6 +1293,241 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   
+  <!-- Enhanced Functionality Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+  
+  <script>
+    // Multi-language Support
+    const translations = {
+      en: {
+        'send-via-whatsapp': 'Send via WhatsApp',
+        'qr-includes': 'Includes: Phone, WhatsApp, Email, Location',
+        'download-qr': 'Download QR',
+        'share-qr': 'Share QR'
+      },
+      ta: {
+        'send-via-whatsapp': 'WhatsApp மூலம் அனுப்பவும்',
+        'qr-includes': 'உள்ளடக்கம்: தொலைபேசி, WhatsApp, மின்னஞ்சல், இடம்',
+        'download-qr': 'QR பதிவிறக்கம்',
+        'share-qr': 'QR பகிர்ந்து கொள்ளுங்கள்'
+      },
+      si: {
+        'send-via-whatsapp': 'WhatsApp හරහා යවන්න',
+        'qr-includes': 'ඇතුළත් වේ: දුරකථනය, WhatsApp, විද්‍යුත් තැපෑල, ස්ථානය',
+        'download-qr': 'QR බාගන්න',
+        'share-qr': 'QR බෙදාගන්න'
+      }
+    };
+
+    let currentLang = 'en';
+
+    // Language Switcher
+    document.addEventListener('DOMContentLoaded', function() {
+      const langBtns = document.querySelectorAll('.lang-btn');
+      const langContents = document.querySelectorAll('.language-content');
+
+      langBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const lang = this.dataset.lang;
+          
+          // Update active button
+          langBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Update active content
+          langContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.dataset.lang === lang) {
+              content.classList.add('active');
+            }
+          });
+          
+          // Update translations
+          currentLang = lang;
+          updateTranslations();
+        });
+      });
+
+      // Initialize QR Code
+      generateQRCode();
+      
+      // Update social proof stats
+      updateSocialProofStats();
+      
+      // Update stats every 30 seconds
+      setInterval(updateSocialProofStats, 30000);
+    });
+
+    function updateTranslations() {
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.dataset.translate;
+        if (translations[currentLang] && translations[currentLang][key]) {
+          element.textContent = translations[currentLang][key];
+        }
+      });
+    }
+
+    // Voice Recording Functionality
+    let mediaRecorder;
+    let audioChunks = [];
+    let isRecording = false;
+
+    const voiceRecordBtn = document.getElementById('voiceRecordBtn');
+    const audioPlayback = document.getElementById('audioPlayback');
+    const recordingStatus = document.getElementById('recordingStatus');
+
+    voiceRecordBtn.addEventListener('click', toggleRecording);
+
+    async function toggleRecording() {
+      if (!isRecording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          
+          mediaRecorder.ondataavailable = event => {
+            audioChunks.push(event.data);
+          };
+          
+          mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            audioPlayback.src = audioUrl;
+            audioPlayback.style.display = 'block';
+            audioChunks = [];
+          };
+          
+          mediaRecorder.start();
+          isRecording = true;
+          
+          voiceRecordBtn.classList.add('recording');
+          voiceRecordBtn.innerHTML = '<i class="fa fa-stop"></i>';
+          recordingStatus.innerHTML = '<div class="text-light">🔴 Recording... Click to stop</div>';
+          
+        } catch (err) {
+          console.error('Error accessing microphone:', err);
+          recordingStatus.innerHTML = '<div class="text-warning">❌ Microphone access denied</div>';
+        }
+      } else {
+        mediaRecorder.stop();
+        mediaRecorder.stream.getTracks().forEach(track => track.stop());
+        isRecording = false;
+        
+        voiceRecordBtn.classList.remove('recording');
+        voiceRecordBtn.innerHTML = '<i class="fa fa-microphone"></i>';
+        recordingStatus.innerHTML = '<div class="text-light">✅ Recording saved! Play to review</div>';
+      }
+    }
+
+    function sendVoiceToWhatsApp() {
+      const message = "Hi! I've recorded a voice message about my family trip to Jaffna. I'll send it to you separately. Please contact me!";
+      const phoneNumber = "94774557915";
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // QR Code Generation
+    function generateQRCode() {
+      const contactInfo = `BEGIN:VCARD
+VERSION:3.0
+FN:Jaffna Family Explorer
+ORG:Jaffna Family Explorer
+TEL:+94774557915
+EMAIL:prabaharansajeevan23@gmail.com
+URL:https://wa.me/94774557915
+ADR:;;Hospital Road;Jaffna;;40000;Sri Lanka
+END:VCARD`;
+
+      QRCode.toCanvas(document.getElementById('qrcode'), contactInfo, {
+        width: 200,
+        margin: 2,
+        color: {
+          dark: '#f76707',
+          light: '#FFFFFF'
+        }
+      }, function (error) {
+        if (error) console.error(error);
+        console.log('QR code generated successfully!');
+      });
+    }
+
+    function downloadQR() {
+      const canvas = document.querySelector('#qrcode canvas');
+      const link = document.createElement('a');
+      link.download = 'jaffna-family-explorer-contact.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+
+    function shareQR() {
+      const canvas = document.querySelector('#qrcode canvas');
+      canvas.toBlob(blob => {
+        if (navigator.share) {
+          const file = new File([blob], 'jaffna-family-explorer-contact.png', { type: 'image/png' });
+          navigator.share({
+            title: 'Jaffna Family Explorer Contact',
+            text: 'Scan to get our contact details instantly!',
+            files: [file]
+          });
+        } else {
+          // Fallback for browsers that don't support Web Share API
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'jaffna-family-explorer-contact.png';
+          link.click();
+        }
+      });
+    }
+
+    // Social Proof Stats Update
+    function updateSocialProofStats() {
+      // Simulate real-time data (in production, this would come from your backend)
+      const stats = {
+        thisMonth: Math.floor(Math.random() * 10) + 45, // 45-55
+        avgResponse: (Math.random() * 0.8 + 0.8).toFixed(1), // 0.8-1.6 hours
+        satisfaction: Math.floor(Math.random() * 3) + 97, // 97-99%
+        activeTours: Math.floor(Math.random() * 8) + 8 // 8-15
+      };
+
+      document.getElementById('this-month-bookings').textContent = stats.thisMonth;
+      document.getElementById('avg-response').textContent = stats.avgResponse;
+      document.getElementById('satisfaction-rate').textContent = stats.satisfaction + '%';
+      document.getElementById('active-tours').textContent = stats.activeTours;
+    }
+
+    // Animate numbers on scroll
+    function animateNumbers() {
+      const numbers = document.querySelectorAll('.booking-stat-number');
+      numbers.forEach(number => {
+        const target = parseInt(number.textContent);
+        const increment = target / 20;
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            number.textContent = target + (number.textContent.includes('%') ? '%' : '');
+            clearInterval(timer);
+          } else {
+            number.textContent = Math.floor(current) + (number.textContent.includes('%') ? '%' : '');
+          }
+        }, 50);
+      });
+    }
+
+    // Trigger number animation when section comes into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateNumbers();
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    observer.observe(document.querySelector('.booking-stats-grid'));
+  </script>
+  
   <!-- Dynamic Date Management Script -->
   <script>
     // Set minimum date to today for travel date picker
