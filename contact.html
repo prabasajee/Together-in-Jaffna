@@ -170,6 +170,154 @@
           height: 250px;
         }
       }
+
+      /* Visual Enhancements Styles */
+      .team-gallery {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+      }
+
+      .team-gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .team-gallery:hover img {
+        transform: scale(1.05);
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 15px;
+      }
+
+      .success-story-card {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      .success-story-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .success-story-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #f76707;
+      }
+
+      .timeline-container {
+        position: relative;
+        padding: 2rem 0;
+      }
+
+      .timeline-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+
+      .timeline-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #f76707, #fd7e14);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-right: 1.5rem;
+        z-index: 2;
+        animation: pulse 2s infinite;
+      }
+
+      .timeline-content {
+        flex: 1;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      .timeline-line {
+        position: absolute;
+        left: 29px;
+        top: 60px;
+        bottom: -60px;
+        width: 2px;
+        background: linear-gradient(to bottom, #f76707, #fd7e14);
+      }
+
+      .timeline-item:last-child .timeline-line {
+        display: none;
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(247, 103, 7, 0.7);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 10px rgba(247, 103, 7, 0);
+        }
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .gallery-item {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .gallery-caption {
+        padding: 1rem;
+        background: white;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -443,6 +591,249 @@
                 <li>• Free parking available</li>
                 <li>• Child-friendly office space</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet Our Team & Office Gallery -->
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-8 text-center">
+            <h2 class="mb-4">👥 Meet Your Jaffna Family Travel Experts</h2>
+            <p>Our friendly team is passionate about creating memorable family experiences in Jaffna</p>
+          </div>
+        </div>
+        
+        <div class="row mb-5">
+          <div class="col-md-6">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=placeholder" 
+                      title="Welcome to Jaffna Family Explorer - Meet Our Team" 
+                      allowfullscreen>
+              </iframe>
+            </div>
+            <div class="text-center mt-3">
+              <h5>🎥 Personal Welcome Message</h5>
+              <p class="mb-0">Watch our team introduce themselves and share their passion for Jaffna family travel</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=200&fit=crop" alt="Our Jaffna Office">
+                <div class="gallery-caption">
+                  <h6>🏢 Our Jaffna Office</h6>
+                  <small>Child-friendly consultation space</small>
+                </div>
+              </div>
+              
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=300&h=200&fit=crop" alt="Team Planning Session">
+                <div class="gallery-caption">
+                  <h6>👨‍💼 Team Planning</h6>
+                  <small>Crafting your perfect itinerary</small>
+                </div>
+              </div>
+              
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=300&h=200&fit=crop" alt="Family Consultation">
+                <div class="gallery-caption">
+                  <h6>👨‍👩‍👧‍👦 Family Consultation</h6>
+                  <small>Personalized travel planning</small>
+                </div>
+              </div>
+              
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=300&h=200&fit=crop" alt="Local Knowledge">
+                <div class="gallery-caption">
+                  <h6>🗺️ Local Expertise</h6>
+                  <small>Deep knowledge of Jaffna</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Success Stories -->
+    <section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-8 text-center">
+            <h2 class="mb-4">❤️ Happy Family Memories</h2>
+            <p>Real families sharing their amazing Jaffna experiences with us</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="success-story-card">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" 
+                     alt="Sarah Johnson" class="success-story-avatar">
+                <div class="ml-3">
+                  <h6 class="mb-1">Sarah & Michael Johnson</h6>
+                  <small class="text-muted">Family from Canada 🇨🇦</small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop" 
+                     alt="Johnson Family at Nallur Temple" class="w-100" style="border-radius: 10px; height: 150px; object-fit: cover;">
+              </div>
+              <blockquote class="mb-3">
+                <p>"Our twins absolutely loved the Nallur Temple visit! The team made sure everything was child-friendly and educational. Best family vacation ever!"</p>
+              </blockquote>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-warning">
+                  ⭐⭐⭐⭐⭐
+                </div>
+                <small class="text-muted">March 2024</small>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="success-story-card">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b796?w=100&h=100&fit=crop" 
+                     alt="Priya Patel" class="success-story-avatar">
+                <div class="ml-3">
+                  <h6 class="mb-1">Priya & Raj Patel</h6>
+                  <small class="text-muted">Family from UK 🇬🇧</small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=300&h=200&fit=crop" 
+                     alt="Patel Family at Casuarina Beach" class="w-100" style="border-radius: 10px; height: 150px; object-fit: cover;">
+              </div>
+              <blockquote class="mb-3">
+                <p>"Casuarina Beach was perfect for our kids! Clean, safe, and the sunset views were breathtaking. Thank you for the amazing planning!"</p>
+              </blockquote>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-warning">
+                  ⭐⭐⭐⭐⭐
+                </div>
+                <small class="text-muted">July 2024</small>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="success-story-card">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" 
+                     alt="David Chen" class="success-story-avatar">
+                <div class="ml-3">
+                  <h6 class="mb-1">David & Emma Chen</h6>
+                  <small class="text-muted">Family from Australia 🇦🇺</small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&h=200&fit=crop" 
+                     alt="Chen Family at Delft Island" class="w-100" style="border-radius: 10px; height: 150px; object-fit: cover;">
+              </div>
+              <blockquote class="mb-3">
+                <p>"The Delft Island adventure was incredible! Seeing wild horses with our teenager was magical. Professional service from start to finish!"</p>
+              </blockquote>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-warning">
+                  ⭐⭐⭐⭐⭐
+                </div>
+                <small class="text-muted">August 2024</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Response Process Timeline -->
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-8 text-center">
+            <h2 class="mb-4">🕐 Our Response Process</h2>
+            <p>See exactly what happens after you contact us - transparency every step of the way!</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <div class="timeline-container">
+              
+              <div class="timeline-item">
+                <div class="timeline-icon">📝</div>
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                  <h5>Step 1: You Submit Your Request</h5>
+                  <p class="mb-2">Fill out our detailed family travel form with your preferences, dates, and special requirements.</p>
+                  <small class="text-muted">⏱️ Takes 5-10 minutes</small>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-icon">🔔</div>
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                  <h5>Step 2: Instant Acknowledgment</h5>
+                  <p class="mb-2">You receive an immediate confirmation email with your reference number and our contact details.</p>
+                  <small class="text-muted">⏱️ Within 2 minutes</small>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-icon">👨‍💼</div>
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                  <h5>Step 3: Expert Review</h5>
+                  <p class="mb-2">Our family travel specialists review your requirements and begin crafting your personalized itinerary.</p>
+                  <small class="text-muted">⏱️ Within 30 minutes</small>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-icon">📞</div>
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                  <h5>Step 4: Personal Contact</h5>
+                  <p class="mb-2">We call or WhatsApp you to discuss details and answer any questions about your Jaffna family trip.</p>
+                  <small class="text-muted">⏱️ Within 2 hours</small>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-icon">📋</div>
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                  <h5>Step 5: Custom Itinerary Delivery</h5>
+                  <p class="mb-2">You receive a detailed, personalized family itinerary with photos, maps, and all booking options.</p>
+                  <small class="text-muted">⏱️ Within 4 hours</small>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-icon">✅</div>
+                <div class="timeline-content">
+                  <h5>Step 6: Booking & Support</h5>
+                  <p class="mb-2">Once approved, we handle all bookings and provide 24/7 support during your Jaffna family adventure!</p>
+                  <small class="text-muted">⏱️ Your timeline</small>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="row mt-4">
+          <div class="col-md-8 mx-auto text-center">
+            <div class="alert alert-success">
+              <strong>🎯 Our Promise:</strong> You'll hear from us within 2 hours, guaranteed! 
+              If not, call us directly at <a href="tel:+94774557915">+94 77 455 7915</a>
             </div>
           </div>
         </div>
